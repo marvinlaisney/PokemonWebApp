@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page d'accueil</title>
+</head>
+<body>
+	<h1 th:text="${message}">Test</h1>
+
+	<h2 class="h2" th:text="Liste des pokémons de ${dresseur.name}">Liste
+		des pokémons de Georges</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Surnom</th>
+				<th>Numéro de Pokédex</th>
+				<th>Points de santé</th>
+				<th>Evolution</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${pokemons.empty}">
+				<td colspan="3">Aucun pokémon en base de données</td>
+			</tr>
+			<tr th:each="pokemon: ${pokemons}">
+				<td><span th:text="${pokemon.name}"> Nom </span></td>
+				<td><span th:text="${pokemon.nickname}"> Surnom </span></td>
+				<td><span th:text="${pokemon.number}"> Numéro de pokédex
+				</span></td>
+				<td><span th:text="${pokemon.number}"> Points de santés
+				</span></td>
+				<td><span th:text="${pokemon.pokemonEvolution.name}">
+						Evolution </span></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+

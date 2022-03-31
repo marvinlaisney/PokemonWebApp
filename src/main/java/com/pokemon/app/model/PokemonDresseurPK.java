@@ -45,4 +45,20 @@ public class PokemonDresseurPK implements Serializable {
 		
 		return hash;
 	}
+
+	public Long getPokemonId() {
+		return pokemonId;
+	}
+
+	public void setPokemonId(Long pokemonId) {
+		this.pokemonId = pokemonId;
+	}
+
+	public Long getDresseurId() {
+		return dresseurId;
+	}
+
+	public void setDresseurId(Long dresseurId) {
+		this.dresseurId = dresseurId;
+	}
 }
