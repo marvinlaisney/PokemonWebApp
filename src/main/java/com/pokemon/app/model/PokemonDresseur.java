@@ -29,17 +29,4 @@ public class PokemonDresseur implements Serializable {
 	public PokemonDresseurPK getId() {
 		return this.id;
 	}
-
-	public void setId(PokemonDresseurPK id) {
-		this.id = id;
-	}
-
-	public String getNickname() {
-		return this.nickname;
-	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
 }
