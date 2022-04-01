@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page d'accueil</title>
+</head>
+<body>
+	<h1 th:text="${message}">Test</h1>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Ville</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${pokemons.empty}">
+				<td colspan="3">Aucun dresseur en base de données</td>
+			</tr>
+			<tr th:each="pokemon: ${pokemons}">
+				<td><span th:text="${pokemon.id}"> Nom </span></td>
+				<td><span th:text="${pokemon.name}"> Surnom </span></td>
+				<td><span th:text="${pokemon.ville}"> Numéro de pokédex
+				</span></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+

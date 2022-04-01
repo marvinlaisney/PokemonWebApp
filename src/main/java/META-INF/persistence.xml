@@ -4,7 +4,9 @@
 		<class>com.pokemon.app.model.Dresseur</class>
 		<class>com.pokemon.app.model.Pokemon</class>
 		<class>com.pokemon.app.model.PokemonDresseur</class>
-		<class>com.pokemon.app.model.PokemonDresseurPK</class>
-		<class>com.pokemon.app.model.TypePokemon</class>
+		<class>com.pokemon.app.model.PokemonDresseurKey</class>
+		<class>com.pokemon.app.model.Type</class>
+		<class>com.pokemon.app.model.PokemonType</class>
+		<class>com.pokemon.app.model.PokemonTypeKey</class>
 	</persistence-unit>
 </persistence>

@@ -6,13 +6,13 @@ package com.pokemon.app.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.pokemon.app.model.Pokemon;
+import com.pokemon.app.model.Dresseur;
 
 /**
  * @author marvin
  *
  */
 @Repository
-public interface PokemonRepository extends JpaRepository<Pokemon, Long>{
+public interface DresseurRepository extends JpaRepository<Dresseur, Long>{
 
 }

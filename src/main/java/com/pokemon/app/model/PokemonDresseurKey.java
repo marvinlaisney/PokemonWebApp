@@ -3,35 +3,32 @@ package com.pokemon.app.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import lombok.Data;
-
 /**
  * The primary key class for the pokemon_dresse database table.
  * 
  */
-@Data
 @Embeddable
-public class PokemonDresseurPK implements Serializable {
+public class PokemonDresseurKey implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="pokemon_id", insertable=false, updatable=false, unique=true, nullable=false)
+	@Column(name="pokemon_id")
 	private Long pokemonId;
 
-	@Column(name="dresseur_id", insertable=false, updatable=false, unique=true, nullable=false)
+	@Column(name="dresseur_id")
 	private Long dresseurId;
 
-	public PokemonDresseurPK() {
+	public PokemonDresseurKey() {
 	}
 
 	public boolean equals(Object other) {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof PokemonDresseurPK)) {
+		if (!(other instanceof PokemonDresseurKey)) {
 			return false;
 		}
-		PokemonDresseurPK castOther = (PokemonDresseurPK)other;
+		PokemonDresseurKey castOther = (PokemonDresseurKey)other;
 		return 
 			this.pokemonId.equals(castOther.pokemonId)
 			&& this.dresseurId.equals(castOther.dresseurId);
@@ -44,5 +41,21 @@ public class PokemonDresseurPK implements Serializable {
 		hash = hash * prime + this.dresseurId.hashCode();
 		
 		return hash;
+	}
+
+	public Long getPokemonId() {
+		return pokemonId;
+	}
+
+	public void setPokemonId(Long pokemonId) {
+		this.pokemonId = pokemonId;
+	}
+
+	public Long getDresseurId() {
+		return dresseurId;
+	}
+
+	public void setDresseurId(Long dresseurId) {
+		this.dresseurId = dresseurId;
 	}
 }

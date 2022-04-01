@@ -2,9 +2,11 @@ package com.pokemon.app.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import org.springframework.lang.Nullable;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,7 +14,6 @@ import java.util.List;
  * The persistent class for the pokemon database table.
  * 
  */
-@Data
 @Entity
 @Table(name="pokemon")
 @NamedQuery(name="Pokemon.findAll", query="SELECT p FROM Pokemon p")
@@ -37,20 +38,56 @@ public class Pokemon implements Serializable {
 	@OneToOne
 	@JoinColumn(name="evolution")
 	private Pokemon pokemonEvolution;
-
-	//bi-directional many-to-many association to TypePokemon
-	@ManyToMany
-	@JoinTable(
-		name="pokemon_est_de_type"
-		, joinColumns={
-			@JoinColumn(name="pokemon_id", nullable=false)
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="type_id", nullable=false)
-			}
-		)
-	private List<TypePokemon> typePokemons;
+	
+	@Nullable
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pokemon", orphanRemoval = true)
+	private List<PokemonType> typeList = new ArrayList<>();
+	
+	@JsonIgnore
+	@Nullable
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pokemon", orphanRemoval = true)
+	private List<PokemonDresseur> dresseurList = new ArrayList<>();
 
 	public Pokemon() {
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getHealthPoints() {
+		return healthPoints;
+	}
+
+	public void setHealthPoints(Integer healthPoints) {
+		this.healthPoints = healthPoints;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+
+	public Pokemon getPokemonEvolution() {
+		return pokemonEvolution;
+	}
+
+	public void setPokemonEvolution(Pokemon pokemonEvolution) {
+		this.pokemonEvolution = pokemonEvolution;
 	}
 }
