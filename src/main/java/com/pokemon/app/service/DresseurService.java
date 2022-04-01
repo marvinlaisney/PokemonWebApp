@@ -6,6 +6,7 @@ package com.pokemon.app.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pokemon.app.model.Dresseur;
 import com.pokemon.app.repository.DresseurRepository;
@@ -14,6 +15,7 @@ import com.pokemon.app.repository.DresseurRepository;
  * @author marvin
  *
  */
+@Service
 public class DresseurService {
     @Autowired
     private DresseurRepository dresseurRepository;

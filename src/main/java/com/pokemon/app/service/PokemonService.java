@@ -24,7 +24,7 @@ public class PokemonService {
         return pokemonRepository.findById(id);
     }
 
-    public Iterable<Pokemon> getpokemons() {
+    public Iterable<Pokemon> getPokemons() {
         return pokemonRepository.findAll();
     }
 

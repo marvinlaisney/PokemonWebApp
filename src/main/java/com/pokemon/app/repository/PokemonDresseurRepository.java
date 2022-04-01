@@ -3,11 +3,8 @@
  */
 package com.pokemon.app.repository;
 
-import java.util.List;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import com.pokemon.app.model.PokemonDresseur;
 
 /**
@@ -15,8 +12,8 @@ import com.pokemon.app.model.PokemonDresseur;
  *
  */
 @Repository
-public interface PokemonDresseurRepository extends CrudRepository<PokemonDresseur, Long>{
-	public PokemonDresseur findByPokemonIdAndDresseurId(Long pokemonId, Long dresseurId);
-	
-	public List<PokemonDresseur> findByDresseurId(Long dresseurId);
+public interface PokemonDresseurRepository extends JpaRepository<PokemonDresseur, Long>{
+//	public PokemonDresseur findByPokemonIdAndDresseurId(Long pokemonId, Long dresseurId);
+//	
+//	public List<PokemonDresseur> findByDresseurId(Long dresseurId);
 }
