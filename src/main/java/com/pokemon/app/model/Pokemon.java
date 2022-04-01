@@ -3,6 +3,9 @@ package com.pokemon.app.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import org.springframework.lang.Nullable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +43,10 @@ public class Pokemon implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pokemon", orphanRemoval = true)
 	private List<PokemonType> typeList = new ArrayList<>();
 	
-//	@Nullable
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pokemon", orphanRemoval = true)
-//	private List<PokemonDresseur> dresseurList = new ArrayList<>();
+	@JsonIgnore
+	@Nullable
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pokemon", orphanRemoval = true)
+	private List<PokemonDresseur> dresseurList = new ArrayList<>();
 
 	public Pokemon() {
 	}

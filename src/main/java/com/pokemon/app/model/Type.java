@@ -28,6 +28,7 @@ public class Type implements Serializable {
 	@Column(name="label", nullable=false, length=50)
 	private String label;
 	
+	@JsonIgnore
 	@Nullable
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "type", orphanRemoval = true)
 	private List<PokemonType> pokemonList = new ArrayList<>();

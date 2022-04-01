@@ -30,9 +30,9 @@ public class Dresseur implements Serializable {
 	@Column(nullable=false, length=100)
 	private String ville;
 	
-//	@Nullable
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dresseur", orphanRemoval = true)
-//	private List<PokemonDresseur> dresseurList = new ArrayList<>();
+	@Nullable
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dresseur", orphanRemoval = true)
+	private List<PokemonDresseur> pokemonList = new ArrayList<>();
 
 	public Dresseur() {
 	}

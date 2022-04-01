@@ -13,7 +13,9 @@ import com.pokemon.app.model.PokemonDresseur;
  */
 @Repository
 public interface PokemonDresseurRepository extends JpaRepository<PokemonDresseur, Long>{
-//	public PokemonDresseur findByPokemonIdAndDresseurId(Long pokemonId, Long dresseurId);
+	public Iterable<PokemonDresseur> findByPokemonDresseurIdDresseurId(Long dresseurId);
+	
+	public Iterable<PokemonDresseur> findByNickname(String nickname);
 //	
 //	public List<PokemonDresseur> findByDresseurId(Long dresseurId);
 }

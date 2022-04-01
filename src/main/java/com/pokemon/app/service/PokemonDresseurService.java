@@ -6,6 +6,7 @@ package com.pokemon.app.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pokemon.app.model.PokemonDresseur;
+import com.pokemon.app.model.PokemonDresseurKey;
 import com.pokemon.app.repository.PokemonDresseurRepository;
 
 /**
@@ -29,7 +30,15 @@ public class PokemonDresseurService {
 		return pokemonDresseurRepository.findAll();
 	}
 
-	public void deletepokemon(final Long id) {
+	public Iterable<PokemonDresseur> getPokemonsByDresseur(Long dresseurId) {
+		return pokemonDresseurRepository.findByPokemonDresseurIdDresseurId(dresseurId);
+	}
+
+	public Iterable<PokemonDresseur> getPokemonsBySurnom(String surnom) {
+		return pokemonDresseurRepository.findByNickname(surnom);
+	}
+
+	public void deletePokemonDresseur(final Long id) {
 		pokemonDresseurRepository.deleteById(id);
 	}
 

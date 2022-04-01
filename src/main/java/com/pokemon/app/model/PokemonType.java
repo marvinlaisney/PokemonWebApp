@@ -11,15 +11,13 @@ import javax.persistence.MapsId;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "pokemon_est_de_type", uniqueConstraints= @UniqueConstraint(columnNames={"pokemon_id", "type_id"}))
 public class PokemonType implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
-    @EmbeddedId
+	@EmbeddedId
     private PokemonTypeKey id;
     
     @MapsId("pokemonId")
@@ -32,4 +30,30 @@ public class PokemonType implements Serializable{
     @ManyToOne(optional = false, targetEntity = Type.class, fetch = FetchType.EAGER)
     private Type type;
     
+    public PokemonType() {
+	}
+
+	public PokemonTypeKey getId() {
+		return id;
+	}
+
+	public void setId(PokemonTypeKey id) {
+		this.id = id;
+	}
+
+	public Pokemon getPokemon() {
+		return pokemon;
+	}
+
+	public void setPokemon(Pokemon pokemon) {
+		this.pokemon = pokemon;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
 }

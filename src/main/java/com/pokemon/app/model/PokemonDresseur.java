@@ -17,7 +17,7 @@ public class PokemonDresseur implements Serializable {
 
 	@JsonIgnore
 	@EmbeddedId
-	private PokemonDresseurKey id;
+	private PokemonDresseurKey pokemonDresseurId;
 	
     @MapsId("pokemonId")
     @JoinColumn(name = "pokemon_id")
@@ -42,12 +42,28 @@ public class PokemonDresseur implements Serializable {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
-	public void setId(PokemonDresseurKey id) {
-		this.id = id;
+	
+	public PokemonDresseurKey getPokemonDresseurId() {
+		return this.pokemonDresseurId;
 	}
 	
-	public PokemonDresseurKey getId() {
-		return this.id;
+	public void setId(PokemonDresseurKey pokemonDresseurId) {
+		this.pokemonDresseurId = pokemonDresseurId;
+	}
+
+	public Pokemon getPokemon() {
+		return pokemon;
+	}
+
+	public void setPokemon(Pokemon pokemon) {
+		this.pokemon = pokemon;
+	}
+
+	public Dresseur getDresseur() {
+		return dresseur;
+	}
+
+	public void setDresseur(Dresseur dresseur) {
+		this.dresseur = dresseur;
 	}
 }
