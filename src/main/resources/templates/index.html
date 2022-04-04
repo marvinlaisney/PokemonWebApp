@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1 th:text="${message}">Bienvenue</h1>
-</body>
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Pokédex Online</title>
+		<link th:href="@{/css/main.css}" rel="stylesheet" />
+	</head>
+	<body>
+		
+		<div class="container">
+			<img th:src="@{/images/Logo.png}" />
+			
+			<div class="btnPokemonGroup">
+			</div>
+			
+			<div class="btnDresseurGroup">
+			</div>
+		</div>
+	</body>
 </html>

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+body {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column: 2/5;
+	background-color: #2660B5;
+	border-radius: 15px;
+}
+
+.container img {
+	grid-column: 3;
+}
+
+@media screen and (max-width: 600px) {
+	/* Small screen, non-retina */
+	body {
+		display: grid;
+		grid-template-columns: 1fr;
+		background-position: center;
+	}
+}
