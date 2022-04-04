@@ -5,8 +5,6 @@
 <title>Page d'accueil</title>
 </head>
 <body>
-	<h1 th:text="${message}">Test</h1>
-
 	<table>
 		<thead>
 			<tr>
@@ -16,13 +14,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:if="${pokemons.empty}">
+			<tr th:if="${dresseurs.empty}">
 				<td colspan="3">Aucun dresseur en base de données</td>
 			</tr>
-			<tr th:each="pokemon: ${pokemons}">
-				<td><span th:text="${pokemon.id}"> Nom </span></td>
-				<td><span th:text="${pokemon.name}"> Surnom </span></td>
-				<td><span th:text="${pokemon.ville}"> Numéro de pokédex
+			<tr th:each="dresseur: ${dresseurs}">
+				<td><span th:text="${dresseur.id}"> Id </span></td>
+				<td><span th:text="${dresseur.name}"> Nom </span></td>
+				<td><span th:text="${dresseur.ville}"> Ville
 				</span></td>
 			</tr>
 		</tbody>
