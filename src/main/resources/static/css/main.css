@@ -28,4 +28,9 @@ body {
 		grid-template-columns: 1fr;
 		background-position: center;
 	}
+	
+	body {
+
+	         background-color:red;
+}
 }

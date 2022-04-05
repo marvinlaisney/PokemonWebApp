@@ -3,7 +3,11 @@
  */
 package com.pokemon.app.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +19,9 @@ import com.pokemon.app.service.DresseurService;
 import com.pokemon.app.service.PokemonDresseurService;
 
 /**
- * @author marvin
- *
+
  */
-@Controller
+@RestController
 public class DresseurController {
 	@Autowired
 	private DresseurService dresseurService;
@@ -35,22 +38,18 @@ public class DresseurController {
 	@GetMapping("/dresseurs")
 	public String listeDresseurs(Model model) {
 	    Iterable<Dresseur> listDresseurs = dresseurService.getDresseurs();
+	    Iterable<PokemonDresseur> listsPokemonDresseur = pokemonDresseurService.getPokemonsDresseurs();
+	    List<Object> list = new ArrayList<Object>();
+	    for(PokemonDresseur pokemonDresseur : listsPokemonDresseur) {
+	    	Object dresseurPokemon = new Object() {
+	    		String dresseur = pokemonDresseur.getDresseur().getName();
+	    		
+	    	};
+	    }
 	    model.addAttribute("dresseurs", listDresseurs);
 		return "list-dresseur-pokemons";
+		
 	}
 	
-//	@GetMapping("/api/pokemonsdresseurs")
-//	public Iterable<PokemonDresseur> listePokemonsDresseurs(){
-//		return pokemonDresseurService.getPokemonsDresseurs();
-//	}
-//
-//	@GetMapping("/api/pokemonsdresseur/{id}")
-//	public Iterable<PokemonDresseur> listePokemonByDresseur(@PathVariable(value = "id") Long dresseurId){
-//		return pokemonDresseurService.getPokemonsByDresseur(dresseurId);
-//	}
-//	
-//	@GetMapping("/api/pokemonsdresseursurnom/{nickname}")
-//	public Iterable<PokemonDresseur> listePokemonByDresseur(@PathVariable(value = "nickname") String surnom){
-//		return pokemonDresseurService.getPokemonsBySurnom(surnom);
-//	}
+
 }

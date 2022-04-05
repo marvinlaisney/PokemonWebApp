@@ -13,7 +13,7 @@ import com.pokemon.app.service.PokemonService;
 import com.pokemon.app.service.PokemonTypeService;
 
 /**
- * @author marvin
+ *
  *
  */
 @RestController
