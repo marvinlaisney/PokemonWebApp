@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body{
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+#Poketable{
+	display:grid;
+	grid-template-columns: repeat(12, 1fr);
+	
+}

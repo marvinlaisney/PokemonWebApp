@@ -5,6 +5,7 @@ package com.pokemon.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pokemon.app.model.Pokemon;
@@ -13,7 +14,7 @@ import com.pokemon.app.service.PokemonService;
 import com.pokemon.app.service.PokemonTypeService;
 
 /**
- * @author marvin
+ * @author marvin & helene
  *
  */
 @RestController
@@ -25,14 +26,18 @@ public class PokemonController {
 	@Autowired
 	private PokemonTypeService pokemonTypeService;
 	
-	@GetMapping("/api/pokemons")
-	public Iterable<Pokemon> listePokemons() {		
-		return pokemonService.getPokemons();
+
+	
+	@GetMapping("/pokedex")
+	public String listePokemon (Model model) {
+		Iterable<Pokemon> listPokemon = pokemonService.getPokemons();
+		model.addAttribute("pokemon", listPokemon);
+		return "list-pokedex";
 	}
 	
-	@GetMapping("/api/pokemonstype")
-	public Iterable<PokemonType> listePokemonsType() {	
-		var test = pokemonTypeService.getPokemonsType();
-		return test;
-	}
+//	@GetMapping("/api/pokemonstype")
+//	public Iterable<PokemonType> listePokemonsType() {	
+//		var test = pokemonTypeService.getPokemonsType();
+//		return test;
+//	}
 }

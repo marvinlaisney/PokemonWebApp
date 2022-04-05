@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pokédex National</title>
+<link th:href='@{/css/pokedex.css}' rel='stylesheet' />
+</head>
+<body>
+
+<div id=Poketable>
+	<table>
+		<thead>
+			<tr>
+				<th>Numéro</th>
+				<th>Nom du Pokémon</th>
+				<th>PV</th>
+				<th>Type</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:if="${pokemon.empty}">
+			<td colspan="3">Aucun Pokémon en base de données</td>
+		</tr>
+		<tr th:each="pokemon: ${pokemon}">
+		<td><span th:text="${pokemon.number}"> Numéro </span></td>	
+		<td><span th:text="${pokemon.name}"> Nom </span></td>
+		<td><span th:text="${pokemon.health_point}"> PV </span></td>
+	<!-- 	</tr><td><span th:text="${type_pokemon.label}"> Type </span></td>  -->
+		</tbody>
+	
+	</table>
+
+</div>
+
+
+</body>
+</html>
