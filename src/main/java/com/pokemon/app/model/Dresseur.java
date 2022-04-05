@@ -29,7 +29,7 @@ public class Dresseur implements Serializable {
 
 	@Column(nullable=false, length=100)
 	private String ville;
-	
+
 	@Nullable
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dresseur", orphanRemoval = true)
 	private List<PokemonDresseur> pokemonList = new ArrayList<>();
@@ -59,5 +59,13 @@ public class Dresseur implements Serializable {
 
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+	
+	public List<PokemonDresseur> getPokemonList() {
+		return pokemonList;
+	}
+
+	public void setPokemonList(List<PokemonDresseur> pokemonList) {
+		this.pokemonList = pokemonList;
 	}
 }
