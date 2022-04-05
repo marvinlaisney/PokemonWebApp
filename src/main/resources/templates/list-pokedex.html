@@ -11,11 +11,11 @@
 <img th:src="@{/images/pokedex-3d.png}" class="Pnational"/>
 
 <!--   <img th:src="@{/images/pokedex2(1).png}" /> -->
-<!--  <p><button onclick="sortTable()">Sort</button></p> -->
+<p><button onclick="sortTable()">Sort</button></p>
 </div>
 
 <div id=Poketable>
-	<table id="Pokemon">
+	<table id="Pokedex">
 		<thead>
 			<tr>
 				<th>Numéro</th>
@@ -84,7 +84,13 @@ function sortTable() {
       
       //check if the two rows should switch place:
       
-      if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            //regex pour récupérer les chiffres dans le span
+      const rgx = /[0-9]+/;
+      num1 = x.innerHTML.match(rgx);
+      num2 = y.innerHTML.match(rgx);
+      //check if the two rows should switch place:
+      
+      if (Number(num1) > Number(num2)) {
       
         //if so, mark as a switch and break the loop:
         
