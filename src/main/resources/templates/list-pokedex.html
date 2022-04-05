@@ -18,13 +18,13 @@
 			</tr>
 		</thead>
 		<tbody>
-		<tr th:if="${pokemon.empty}">
+		<tr th:if="${pokemons.empty}">
 			<td colspan="3">Aucun Pokémon en base de données</td>
 		</tr>
-		<tr th:each="pokemon: ${pokemon}">
+		<tr th:each="pokemon: ${pokemons}">
 		<td><span th:text="${pokemon.number}"> Numéro </span></td>	
 		<td><span th:text="${pokemon.name}"> Nom </span></td>
-		<td><span th:text="${pokemon.health_point}"> PV </span></td>
+		<td><span th:text="${pokemon.healthPoints}"> PV </span></td>
 	<!-- 	</tr><td><span th:text="${type_pokemon.label}"> Type </span></td>  -->
 		</tbody>
 	

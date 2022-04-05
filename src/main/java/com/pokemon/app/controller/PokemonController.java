@@ -17,7 +17,7 @@ import com.pokemon.app.service.PokemonTypeService;
  * @author marvin & helene
  *
  */
-@RestController
+@Controller
 public class PokemonController {
 
 	@Autowired
@@ -31,7 +31,7 @@ public class PokemonController {
 	@GetMapping("/pokedex")
 	public String listePokemon (Model model) {
 		Iterable<Pokemon> listPokemon = pokemonService.getPokemons();
-		model.addAttribute("pokemon", listPokemon);
+		model.addAttribute("pokemons", listPokemon);
 		return "list-pokedex";
 	}
 	
@@ -40,4 +40,5 @@ public class PokemonController {
 //		var test = pokemonTypeService.getPokemonsType();
 //		return test;
 //	}
+	
 }
