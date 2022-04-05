@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns.th="http:www.thymeleaf">
 <head>
 <meta charset="UTF-8">
+<link th:href="@{/css/main.css}" rel="stylesheet"/>
 <title>Page d'accueil</title>
 </head>
 <body>
 	<table>
 		<thead>
+		
+		<h2>Liste des dresseurs</h2>
 			<tr>
 				<th>Id</th>
 				<th>Nom</th>
@@ -20,8 +23,7 @@
 			<tr th:each="dresseur: ${dresseurs}">
 				<td><span th:text="${dresseur.id}"> Id </span></td>
 				<td><span th:text="${dresseur.name}"> Nom </span></td>
-				<td><span th:text="${dresseur.ville}"> Ville
-				</span></td>
+				<td><span th:text="${dresseur.ville}"> Ville </span></td>
 			</tr>
 		</tbody>
 	</table>

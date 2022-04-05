@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.pokemon.app.model.Dresseur;
 
 /**
- * @author marvin
+ * 
  *
  */
 @Repository
