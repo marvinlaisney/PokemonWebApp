@@ -81,14 +81,6 @@ public class Pokemon implements Serializable {
 	public void setNumber(Integer number) {
 		this.number = number;
 	}
-	
-	public List<PokemonType> getTypeList() {
-		return typeList;
-	}
-
-	public void setTypeList(List<PokemonType> typeList) {
-		this.typeList = typeList;
-	}
 
 	public Pokemon getPokemonEvolution() {
 		return pokemonEvolution;
