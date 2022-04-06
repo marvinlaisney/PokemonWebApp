@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.container.equipes{
+	background-color: #D71D34;
+	grid-template-rows: 150px 1fr;
+}
+
+.container.equipes .listEquipes{
+	grid-row:2;
+	grid-column: 1/6;
+}

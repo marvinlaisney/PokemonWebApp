@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns.th="http:www.thymeleaf">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+<link th:href="@{/css/equipe.css}" rel="stylesheet" />
+<title>Equipes Pokémon</title>
+</head>
+<body>
+
+	<div class="container equipes">
+		<img th:src="@{/images/Logo.png}" />
+
+
+		<div class="listEquipes">
+			<div class="equipe" th:each="pokemonsDresseur: ${listPokemonsDresseurs}">
+				<h3 th:text="${pokemonsDresseur.dresseur.name}">Nom dresseur</h3>
+				<div class="listPokemons">
+					<div class="pokemon" th:each="pokemon: ${pokemonsDresseur.listPokemons}">
+						<h4 class="namePokemon" th:text="|${pokemon.pokemon.name} / ${pokemon.nickname}|">Nom/Surnom</h4>
+						<div class="healthPoints">
+							<span th:text="${pokemon.pokemon.healthPoints}">Points de vie</span>
+						</div>
+						<div class="listTypes">
+							<div class="type" th:each="type: ${pokemon.pokemon.typeList}">
+								<span th:text="${type.type.label}">Type</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

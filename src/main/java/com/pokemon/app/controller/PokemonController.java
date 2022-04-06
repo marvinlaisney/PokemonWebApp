@@ -15,7 +15,6 @@ import com.pokemon.app.service.PokemonService;
 import com.pokemon.app.service.PokemonTypeService;
 
 /**
- * @author marvin & helene
  *
  */
 @Controller
@@ -35,11 +34,4 @@ public class PokemonController {
 		model.addAttribute("pokemons", listPokemon);
 		return "list-pokedex";
 	}
-	
-//	@GetMapping("/api/pokemonstype")
-//	public Iterable<PokemonType> listePokemonsType() {	
-//		var test = pokemonTypeService.getPokemonsType();
-//		return test;
-//	}
-	
 }

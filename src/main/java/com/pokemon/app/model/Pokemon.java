@@ -41,7 +41,7 @@ public class Pokemon implements Serializable {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pokemon", orphanRemoval = true)
 	private List<PokemonType> typeList = new ArrayList<PokemonType>();
-	
+  
 	@JsonIgnore
 	@Nullable
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pokemon", orphanRemoval = true)
@@ -80,6 +80,14 @@ public class Pokemon implements Serializable {
 
 	public void setNumber(Integer number) {
 		this.number = number;
+	}
+	
+	public List<PokemonType> getTypeList() {
+		return typeList;
+	}
+
+	public void setTypeList(List<PokemonType> typeList) {
+		this.typeList = typeList;
 	}
 
 	public Pokemon getPokemonEvolution() {
