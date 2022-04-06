@@ -5,6 +5,8 @@ package com.pokemon.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pokemon.app.model.Pokemon;
@@ -14,9 +16,8 @@ import com.pokemon.app.service.PokemonTypeService;
 
 /**
  *
- *
  */
-@RestController
+@Controller
 public class PokemonController {
 
 	@Autowired
@@ -25,14 +26,12 @@ public class PokemonController {
 	@Autowired
 	private PokemonTypeService pokemonTypeService;
 	
-	@GetMapping("/api/pokemons")
-	public Iterable<Pokemon> listePokemons() {		
-		return pokemonService.getPokemons();
-	}
+	@CrossOrigin(allowedHeaders = "http://localhost:9000")
 	
-	@GetMapping("/api/pokemonstype")
-	public Iterable<PokemonType> listePokemonsType() {	
-		var test = pokemonTypeService.getPokemonsType();
-		return test;
+	@GetMapping("/pokedex")
+	public String listePokemon (Model model) {
+		Iterable<Pokemon> listPokemon = pokemonService.getPokemons();
+		model.addAttribute("pokemons", listPokemon);
+		return "list-pokedex";
 	}
 }

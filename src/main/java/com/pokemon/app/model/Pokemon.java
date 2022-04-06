@@ -39,10 +39,9 @@ public class Pokemon implements Serializable {
 	@JoinColumn(name="evolution")
 	private Pokemon pokemonEvolution;
 	
-	@Nullable
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pokemon", orphanRemoval = true)
-	private List<PokemonType> typeList = new ArrayList<>();
-
+	private List<PokemonType> typeList = new ArrayList<PokemonType>();
+  
 	@JsonIgnore
 	@Nullable
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pokemon", orphanRemoval = true)
@@ -97,5 +96,20 @@ public class Pokemon implements Serializable {
 
 	public void setPokemonEvolution(Pokemon pokemonEvolution) {
 		this.pokemonEvolution = pokemonEvolution;
+	}
+	public List<PokemonType> getTypeList() {
+		return typeList;
+	}
+
+	public void setTypeList(List<PokemonType> typeList) {
+		this.typeList = typeList;
+	}
+
+	public List<PokemonDresseur> getDresseurList() {
+		return dresseurList;
+	}
+
+	public void setDresseurList(List<PokemonDresseur> dresseurList) {
+		this.dresseurList = dresseurList;
 	}
 }

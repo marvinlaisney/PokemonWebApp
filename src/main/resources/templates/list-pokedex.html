@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pokédex National</title>
+<link th:href='@{/css/pokedex.css}' rel='stylesheet' />
+<link href="//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class=Logo>
+<img th:src="@{/images/pokedex-3d.png}" class="Pnational"/>
+
+<!--   <img th:src="@{/images/pokedex2(1).png}" /> -->
+<div class=Pokenav>
+<p><button onclick="sortTable()"><img th:src="@{/images/pokedex2(1).png}" height="198" width="240"/></button></p>
+</div>
+</div>
+
+<div id=Poketable>
+	<table id="Pokedex">
+		<thead>
+			<tr>
+				<th>Numéro</th>
+				<th>Nom du Pokémon</th>
+				<th>PV</th>
+		<!-- 	<th>Type</th>
+				<th>Photo</th>  -->
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${pokemons.empty}">
+				<td colspan="3">Aucun Pokémon en base de données</td>
+			</tr>
+			<tr th:each="pokemon: ${pokemons}">
+				<td><span th:text="${pokemon.number}"> Numéro </span></td>	
+				<td><span th:text="${pokemon.name}"> Nom </span></td>
+				<td><span th:text="${pokemon.healthPoints}"> PV </span></td>
+			<!-- Début de tous les tests  	
+			<td>Type</td>
+				<td><img src=getPokemonImage(${pokemon.number})></td>
+				
+				</tr>
+		  	  	<tr th:each="pokemonType: ${pokemon?.dresseurList}">
+					<td><span th:text="${pokemonType.name}">Type</span></td>
+			</tr> -->
+		</tbody>
+	
+	</table>
+
+</div>
+
+<script>
+//trouver l'id des des pokemons
+    //gets table
+  //   var oTable = document.getElementById('Pokedex');
+    
+    
+	// var Numeros = oTable.map(function(value,index) { return value[0]; });
+	// for ( let j= 0; j < oTable.rows.length; j++){
+	// 	alert("coucou")
+	// 	}
+	
+           
+function getPokemonImage(number){
+	 
+	return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`
+}
+
+	//Numeros.foreach(element => getPokemonImage(element));
+
+
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("Pokedex");
+  switching = true;
+  
+  
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  
+  
+  while (switching) {
+  
+    //start by saying: no switching is done:
+    
+    switching = false;
+    rows = table.rows;
+    
+    
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    
+    
+    for (i = 1; i < (rows.length - 1); i++) {
+    
+      //start by saying there should be no switching:
+      
+      shouldSwitch = false;
+      
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+      
+      //check if the two rows should switch place:
+      
+            //regex pour récupérer les chiffres dans le span
+      const rgx = /[0-9]+/;
+      num1 = x.innerHTML.match(rgx);
+      num2 = y.innerHTML.match(rgx);
+      //check if the two rows should switch place:
+      
+      if (Number(num1) > Number(num2)) {
+      
+        //if so, mark as a switch and break the loop:
+        
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+    
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+</body>
+</html>
