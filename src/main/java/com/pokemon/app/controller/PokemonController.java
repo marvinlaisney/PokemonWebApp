@@ -8,11 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.pokemon.app.model.Pokemon;
-import com.pokemon.app.model.PokemonType;
 import com.pokemon.app.service.PokemonService;
-import com.pokemon.app.service.PokemonTypeService;
 
 /**
  *
@@ -22,9 +19,6 @@ public class PokemonController {
 
 	@Autowired
 	private PokemonService pokemonService;
-	
-	@Autowired
-	private PokemonTypeService pokemonTypeService;
 	
 	@CrossOrigin(allowedHeaders = "http://localhost:9000")
 	
