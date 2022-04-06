@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokédex Online</title>
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+	<div class="container">
+		<img th:src="@{/images/Logo.png}" style="margin-bottom: 15px;" />
+
+		<div class="menu btnPokemonGroup" style="margin-bottom: 15px;">
+			<a th:href="@{/pokedex}">Montre les tous !</a>
+		</div>
+
+		<div class="menu btnDresseurGroup">
+			<a th:href="@{/dresseurs}">Les meilleurs dresseurs !</a>
+		</div>
+	</div>
+</body>
+</html>

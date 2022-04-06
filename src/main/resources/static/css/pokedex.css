@@ -1,0 +1,50 @@
+@charset "UTF-8";
+@import url(//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon);
+
+body{
+	background-image: url("../images/pikachu.jpg");
+	background-repeat: repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+button{
+	animation:pulse;
+}
+
+.Pokenav{
+	width:10%;
+	margin:auto;
+	display:block
+}
+
+.Pnational{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:90%;
+}
+
+table{
+	width:100%;
+}
+
+th{
+	height:30px;
+	text-align:center;
+	padding:10px; 
+	border-bottom:1px solid #ddd;
+	font-family:Pokemon;
+	font-size:18pt;
+	color: #401E17;
+	font-size:30pt;
+}
+td{
+	height:50px;
+	text-align:center;
+	padding:10px;
+	border-bottom:1px solid #ddd;
+	font-family:Pokemon;
+	font-size:18pt;
+	color: #401E17;
+}

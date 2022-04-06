@@ -1,16 +1,18 @@
 package com.pokemon.app.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
-import lombok.Data;
+import org.springframework.lang.Nullable;
 
 
 /**
  * The persistent class for the dresseur database table.
  * 
  */
-@Data
 @Entity
 @Table(name="dresseur")
 @NamedQuery(name="Dresseur.findAll", query="SELECT d FROM Dresseur d")
@@ -28,6 +30,42 @@ public class Dresseur implements Serializable {
 	@Column(nullable=false, length=100)
 	private String ville;
 
+	@Nullable
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "dresseur", orphanRemoval = true)
+	private List<PokemonDresseur> pokemonList = new ArrayList<>();
+
 	public Dresseur() {
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+	
+	public List<PokemonDresseur> getPokemonList() {
+		return pokemonList;
+	}
+
+	public void setPokemonList(List<PokemonDresseur> pokemonList) {
+		this.pokemonList = pokemonList;
 	}
 }

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.container.equipes {
+	background-color: #D71D34;
+	grid-template-rows: 150px 1fr;
+}
+
+.container.equipes .listEquipes {
+	display: flex;
+	flex-direction: column;
+	grid-row: 2;
+	grid-column: 2/5;
+}
+
+.container.equipes .listEquipes .equipe {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+	background-color: #2660B5;
+	border-radius: 15px;
+	padding: 15px 35px 15px 35px;
+}
+
+.container.equipes .listEquipes .equipe .listPokemons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 50px;
+}
+
+.container.equipes .listEquipes .equipe .listPokemons .pokemon{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.sprite, .healthPoints{
+	align-self: center;
+}
+
+.container.equipes .listEquipes .equipe .listPokemons .pokemon .pokemonDatas{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.healthPoints{
+	color: #FFCB05;
+}
+
+.container.equipes .listEquipes .equipe .listPokemons .pokemon .pokemonDatas .listTypes{
+	display: flex;
+	justify-content: space-between;
+}
+
+.listTypes .type{
+	padding: 5px;
+	border-radius: 10px;
+	color: white;
+	font-size: 12px;
+}
+
+.onlyOne{
+	align-self: center;
+}
+
+h1 {
+	align-self: center;
+	-webkit-text-stroke: 2px #3A5DA8; /* width and color */
+	font-family: Pokemon;
+	color: #FFCB05;
+}
+
+h4 {
+	font-family: Pokemon;
+	color: #FFCB05;
+}
+
+@media screen and (max-width: 600px) {
+	.container.equipes .listEquipes {
+		grid-column: 1/4;
+	}
+}
