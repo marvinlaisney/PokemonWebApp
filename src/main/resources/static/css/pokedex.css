@@ -8,6 +8,16 @@ body{
 	background-attachment: fixed;
 }
 
+button{
+	animation:pulse;
+}
+
+.Pokenav{
+	width:10%;
+	margin:auto;
+	display:block
+}
+
 .Pnational{
 	display:block;
 	margin-left:auto;
