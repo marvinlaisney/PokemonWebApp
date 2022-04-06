@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+@import
+	url(//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon)
+	;
+
 body {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
@@ -12,7 +16,7 @@ body {
 
 .container {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: 100px repeat(3, 1fr) 100px;
 	grid-template-rows: repeat(3, 1fr);
 	grid-column: 4/10;
 	grid-row: 2;
@@ -49,8 +53,8 @@ body {
 		grid-template-columns: repeat(3, 1fr);
 		grid-column: 1;
 	}
-	
-	.container img, .container .btnPokemonGroup, .container .btnDresseurGroup {
+	.container img, .container .btnPokemonGroup, .container .btnDresseurGroup
+		{
 		grid-column: 2;
 	}
 }
